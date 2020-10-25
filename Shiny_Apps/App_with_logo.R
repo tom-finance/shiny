@@ -2,14 +2,17 @@ library(shiny)
 
 ui <- fluidPage(
   
-  titlePanel(title=div(img(src="C:/Users/User/Desktop/shiny/Shiny_Apps/logo.jpg")))
+  titlePanel(title=div(img(src="logo.jpg", height="5%", width="5%"), 
+                       "Shiny PDF Cleaning App with R"))
   
-  # titlePanel(title=tags$a(href='http://www.nhl.com/',
-  #                         tags$img(src='nhl.jpg',height='50',width='50')))
 )
 
-server <- function(input, output, session){
+server <- function(input, output){
   
 }
 
 shinyApp(ui, server)
+
+
+# check this out
+# https://stackoverflow.com/questions/50348886/resize-embedding-image-in-shiny-app

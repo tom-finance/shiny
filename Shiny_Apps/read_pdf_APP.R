@@ -1,10 +1,16 @@
+################################################################################
+# R Shiny App
+################################################################################
+
+# packages
 library(shiny)
 library(readxl)
 library(pdftools)
 library(openxlsx)
-
+library(shinythemes)
 
 #####################################
+
 # function to clean data
 analyseData = function(data){
   # Do some analysis
@@ -18,8 +24,9 @@ analyseData = function(data){
 
 runApp(
   list(
-    ui = fluidPage(
-      titlePanel("Shiny PDF Cleaning App with R"),
+    ui = fluidPage(theme = shinytheme("flatly"),
+      titlePanel(title=div(img(src="logo.jpg", height="5%", width="5%"), 
+                           "Shiny PDF Cleaning App with R")),
       sidebarLayout(
         sidebarPanel(
           fileInput('file1', 'Choose PDF file',
@@ -31,6 +38,7 @@ runApp(
           tableOutput('contents'))
       )
     ),
+    
     server = function(input, output){
       
       # read user input data into application
