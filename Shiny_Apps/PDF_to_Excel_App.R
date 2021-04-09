@@ -72,7 +72,9 @@ ui <- fluidPage(theme = shinytheme("flatly"), # use a theme to make application 
                       accept = c(".pdf")
             ),
             textInput("t1","Output Directory definieren", 
-                      value = "C:/Users/thoma/Desktop/Linkedin.xlsx"),
+                      value = paste0("C:/Users/thoma/Desktop/File_", 
+                                     format(Sys.Date(), "%d.%m.%Y"),
+                                     ".xlsx")),
             # downloadButton("dl", "Download"), # excluded because action button works better for export!
             h5("Export"),
             actionButton("go","Export to Excel!"),
